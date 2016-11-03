@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Test PointClass Functional Pattern</title>
+	<script src="09_grandChild.js"></script>
+</head>
+<body>
+<script>
+	// Example 9. GrandChild - SuperClass
+	let parentObj = parent("Parent Param");
+	console.log( parentObj.getValue() );
+
+	let childObj = child("Child Param");
+	console.log( childObj.getValue() );
+
+	let grandChildObj = grandChild("GrandChild Param");
+	console.log( grandChildObj.getValue() );
+</script>
+</body>
+</html>

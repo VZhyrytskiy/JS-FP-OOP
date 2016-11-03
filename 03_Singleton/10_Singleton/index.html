@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Test PointClass Functional Pattern</title>
+	<script src="10_addSingletonGetter.js"></script>
+	<script src="10_Singleton.js"></script>
+</head>
+<body>
+<script>
+	// Example 10. Singleton
+	let parentObj = parent.getInstance();
+	let parentObj2 = parent.getInstance();
+
+	parentObj.setValue(10);
+	parentObj2.setValue(20);
+
+	console.log(parentObj.getValue());		// => 20
+	console.log(parentObj2.getValue());		// => 20
+	console.log(parentObj === parentObj2);	// => true
+</script>
+</body>
+</html>

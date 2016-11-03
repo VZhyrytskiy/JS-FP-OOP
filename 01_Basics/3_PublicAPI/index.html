@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Public API</title>
+	<script src="03_PointClass.js"></script>
+</head>
+<body>
+<script>
+	// Example 3. Call public API in private methods with me variable
+	let pointObj = point( 1, 10, "PointName" );
+	pointObj.setX(10).setY(20);
+	console.log( pointObj.getX() );
+	console.log( pointObj.getY() );
+</script>
+</body>
+</html>

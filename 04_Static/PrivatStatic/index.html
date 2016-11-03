@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Test PointClass Functional Pattern</title>
+	<script src="12_PrivateStatic.js"></script>
+</head>
+<body>
+<script>
+	// Example 12. Private Static
+	let parentObj1 = parent();
+	let parentObj2 = parent();
+
+	// All instances change the same value
+	parentObj1.incCount();
+	parentObj2.printCount();
+	parentObj2.incCount();
+	parentObj1.printCount();
+</script>
+</body>
+</html>

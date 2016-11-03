@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Test PointClass Functional Pattern</title>
+	<script src="06_InheritanceProblem.js"></script>
+</head>
+<body>
+<script>
+	// Example 6. Inharitance problem with 02_PointClass (links in return)
+	let childObj = child();
+
+	console.log(childObj);
+	console.log(childObj.refresh);
+	childObj.init(); // => init call function refresh() => Parent object 
+	childObj.refresh(); // refresh() => Child object 
+</script>
+</body>
+</html>
