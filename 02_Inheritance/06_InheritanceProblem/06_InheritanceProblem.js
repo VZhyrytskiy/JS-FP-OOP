@@ -1,38 +1,38 @@
-/* 
- *	parent, child class and inheritance problem 
- *	Functional Pattern
+/*
+ *    parent, child class and inheritance problem
+ *    Functional Pattern
  */
 
 let parent = function() {
 
-	function init() {
-		refresh();
-	}
+    function init() {
+        refresh();
+    }
 
-	function refresh(){
-		console.log("Parent object");
-	}
+    function refresh(){
+        console.log("Parent object");
+    }
 
-	// Return public API
-	return {
-		init,
-		refresh
-	};
+    // Return public API
+    return {
+        init,
+        refresh
+    };
 };
 
 let child = function() {
 
-	let me = parent();
+    let me = parent();
 
-	publicAPI();
+    publicAPI();
 
-	function publicAPI() {
-		Object.assign(me, {
-			refresh: function() {
-				console.log("Child object");
-			}
-		});
-	}
+    function publicAPI() {
+        Object.assign(me, {
+            refresh: function() {
+                console.log("Child object");
+            }
+        });
+    }
 
-	return me;
+    return me;
 };
