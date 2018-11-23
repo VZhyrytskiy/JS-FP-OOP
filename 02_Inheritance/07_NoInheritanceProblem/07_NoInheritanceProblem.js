@@ -3,40 +3,40 @@
  *	Functional Pattern
  */
 
-let parent = function() {
+let parent = function () {
 
 	let me = {};
 
 	publicAPI();
 
-	function publicAPI(){
-		Object.assign(me, {
-			init: function() {
+	function publicAPI() {
+		me = Object.assign({}, me, {
+			init: function () {
 				me.refresh();
 			},
-			refresh: function() {
+			refresh: function () {
 				console.log("Parent object");
 			}
 		});
 	}
 
 	// Return public API
-	return me;
+	return Object.freeze(me);
 };
 
-let child = function() {
+let child = function () {
 
 	let me = parent();
 
 	publicAPI();
 
 	function publicAPI() {
-		Object.assign(me, {
-			refresh: function() {
+		me = Object.assign({}, me, {
+			refresh: function () {
 				console.log("Child object");
 			}
 		});
 	}
 
-	return me;
+	return Object.freeze(me);
 };

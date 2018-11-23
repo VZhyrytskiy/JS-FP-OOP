@@ -6,8 +6,8 @@
  */
 
 
-let square = function( x, y, width ) {
-	let 
+let square = function (x, y, width) {
+	let
 		// In this case me is NOT empty, it is result of parent constructor
 		me = point(x, y),
 		width_ = width;
@@ -19,12 +19,13 @@ let square = function( x, y, width ) {
 		// You shouldn't use me = {...}
 
 		// Extend me
-		me.getWidth = function() {
+		// !!! Problem, when me is frozen
+		me.getWidth = function () {
 			return width_;
 		};
 
 		// Override method
-		me.getFieldParam = function() {
+		me.getFieldParam = function () {
 			return "";
 		};
 	}

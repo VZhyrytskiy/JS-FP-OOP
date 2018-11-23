@@ -3,41 +3,41 @@
  *	Functional Pattern
  */
 
-let parent = function( value ) {
+let parent = function (value) {
 
 	let me = {};
 
 	publicAPI();
 
-	function publicAPI(){
-		Object.assign(me, {
-			getValue: function() {
+	function publicAPI() {
+		me = Object.assign({}, me, {
+			getValue: function () {
 				return value;
 			}
 		});
 	}
 
 	// Return public API
-	return me;
+	return Object.freeze(me);
 };
 
-let child = function( value ) {
+let child = function (value) {
 
-	let me = parent( value ),
-		
+	let me = parent(value),
+
 		// Save parent method before override
 		superGetValue = me.getValue;
 
 	publicAPI();
 
 	function publicAPI() {
-		Object.assign(me, {
+		me = Object.assign({}, me, {
 			// Override parent method
-			getValue: function() {
+			getValue: function () {
 				return `Child object -> GetValue(): ${superGetValue()}`;
 			}
 		});
 	}
 
-	return me;
+	return Object.freeze(me);
 };

@@ -4,13 +4,13 @@
  */
 
 // IIFE
-let parent = (function() {
+let parent = (function () {
 
 	// Static let
 	parent.count = 0;
 
 	// Static method
-	parent.print = function() {
+	parent.print = function () {
 		return `count = ${parent.count}`;
 	};
 
@@ -22,20 +22,20 @@ let parent = (function() {
 
 		publicAPI();
 
-		function publicAPI(){
-			Object.assign(me, {
-				setValue: function( value ) {
+		function publicAPI() {
+			me = Object.assign({}, me, {
+				setValue: function (value) {
 					value_ = value;
 				},
-				getValue: function() {
+				getValue: function () {
 					return value_;
 				}
 			});
 		}
 
 		// Return public API
-		return me;
-	}; 
+		return Object.freeze(me);
+	};
 
 	// Return CLASS
 	return parent;

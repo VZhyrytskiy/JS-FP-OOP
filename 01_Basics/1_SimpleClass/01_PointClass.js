@@ -3,44 +3,44 @@
  *	Functional Pattern, separated private and public methods
  */
 
-let point = function( x, y, fieldParam ) {
+let point = function (x, y, fieldParam) {
 
 	// Private fields
-	let _x = 0, 
+	let _x = 0,
 		_y = 0;
 
-		// or
-		// x_ = 0,
-		// y_ = 0,
+	// or
+	// x_ = 0,
+	// y_ = 0,
 
-		// fieldParam is a field too, 
-		// but like a param of a function
+	// fieldParam is a field too, 
+	// but like a param of a function
 
 
 	// This call is possible, because of hoisting
-	init( x, y );
+	init(x, y);
 
 
 	// Private methods
-	function init( x, y ) {
+	function init(x, y) {
 		/* code */
 	}
 
 
-	// Public methods
-	return {
-		
+	// Public immutable methods
+	return Object.freeze({
+
 		// They have read and write access to a closure
-		getX: function() {
+		getX: function () {
 			return _x;
 		},
 
-		getY: function() {
+		getY: function () {
 			return _y;
 		},
-		
-		getFieldParam: function() {
+
+		getFieldParam: function () {
 			return fieldParam;
 		}
-	};
+	});
 };

@@ -4,52 +4,52 @@
  *	this pattern we can use to call public API in private methods
  */
 
-let point = function( x, y, fieldParam ) {
+let point = function (x, y, fieldParam) {
 
 	// Private fields
-	let 
-		me,		// object for Public API
-		x_ = 0, 
+	let
+		me, // object for Public API
+		x_ = 0,
 		y_ = 0;
 
 	// This call is possible, because of hoisting
-	publicAPI(); 
+	publicAPI();
 
 	// Call here to make accessible for next method init()
 	init(x, y);
 
 
 	// Private methods
-	function init( x, y ) {
+	function init(x, y) {
 		// Call PublicAPI
 		me
-		.setX( x )
-		.setY( y );
-	}	
+			.setX(x)
+			.setY(y);
+	}
 
 	// Public API
 	function publicAPI() {
 		me = {
-			getX: function() {
+			getX: function () {
 				return x_;
 			},
 
-			getY: function() {
+			getY: function () {
 				return y_;
 			},
 
-			getFieldParam: function() {
+			getFieldParam: function () {
 				return fieldParam;
 			},
 
-			setX: function( x ) {
+			setX: function (x) {
 				x_ = x;
 
 				// For chaining
 				return this;
 			},
 
-			setY: function( y ) {
+			setY: function (y) {
 				y_ = y;
 
 				// For chaining
@@ -58,6 +58,6 @@ let point = function( x, y, fieldParam ) {
 		};
 	}
 
-	// Return public API
-	return me;
+	// Return public immutable API
+	return Object.freeze(me);
 };

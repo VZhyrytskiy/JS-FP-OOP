@@ -4,24 +4,24 @@
  */
 
 // IIFE
-let parent = (function() {
+let parent = (function () {
 
 	let value,
 		me = {};
 
 	publicAPI();
 
-	function publicAPI(){
-		Object.assign(me, {
-			setValue: function( p_value ) {
+	function publicAPI() {
+		me = Object.assign({}, me, {
+			setValue: function (p_value) {
 				value = p_value;
 			},
-			getValue: function() {
+			getValue: function () {
 				return value;
 			}
 		});
 	}
 
 	// Return public API
-	return me;
+	return Object.freeze(me);
 })();

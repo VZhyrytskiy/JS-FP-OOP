@@ -4,7 +4,7 @@
  *    this pattern we can use to call public API in private methods
  */
 
-let point = function( x, y, fieldParam ) {
+let point = function (x, y, fieldParam) {
 
     // Private fields
     let _x = 0,
@@ -12,11 +12,11 @@ let point = function( x, y, fieldParam ) {
 
 
     // This call is possible, because of hoisting
-    init( x, y );
+    init(x, y);
 
 
     // Private methods
-    function init( x, y ) {
+    function init(x, y) {
 
         // Call public method in private method
         refresh();
@@ -40,13 +40,13 @@ let point = function( x, y, fieldParam ) {
         return fieldParam;
     }
 
-    return {
-        // Public methods (references)
+    // Public immutable methods (references)
+    return Object.freeze({
         // They have read and write access to a closure
         // !Problem with inheritance
         getX,
         getY,
         getFieldParam,
         refresh
-    };
+    });
 };

@@ -3,36 +3,36 @@
  *    Functional Pattern
  */
 
-let parent = function() {
+let parent = function () {
 
     function init() {
         refresh();
     }
 
-    function refresh(){
+    function refresh() {
         console.log("Parent object");
     }
 
     // Return public API
-    return {
+    return Object.freeze({
         init,
         refresh
-    };
+    });
 };
 
-let child = function() {
+let child = function () {
 
     let me = parent();
 
     publicAPI();
 
     function publicAPI() {
-        Object.assign(me, {
-            refresh: function() {
+        me = Object.assign({}, me, {
+            refresh: function () {
                 console.log("Child object");
             }
         });
     }
 
-    return me;
+    return Object.freeze(me);
 };

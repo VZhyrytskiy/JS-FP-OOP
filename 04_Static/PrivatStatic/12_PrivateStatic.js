@@ -4,7 +4,7 @@
  */
 
 // IIFE
-let parent = (function() {
+let parent = (function () {
 
 	// Static let
 	let count = 0;
@@ -15,32 +15,32 @@ let parent = (function() {
 	};
 
 	// Return CLASS
-	return function() {
+	return function () {
 
 		let me = {},
 			value_;
 
 		publicAPI();
 
-		function publicAPI(){
-			Object.assign(me, {
-				setValue: function( value ) {
+		function publicAPI() {
+			me = Object.assign({}, me, {
+				setValue: function (value) {
 					value_ = value;
 				},
-				getValue: function() {
+				getValue: function () {
 					return value_;
 				},
-				incCount: function() {
+				incCount: function () {
 					count++;
 				},
-				printCount: function() {
+				printCount: function () {
 					print();
 				}
 			});
 		}
 
 		// Return public API
-		return me;
-	}; 
+		return Object.freeze(me);
+	};
 
 })();
