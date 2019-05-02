@@ -1,7 +1,7 @@
 /* 
 JavaScript: Functional Pattern in OOP
 Trainer: Vitaliy Zhyrytskyy
-CDP Ukraine, Kiev
+L&D Ukraine, Kiev
 
 Outline
 	Class, Constructor, Field, Method
