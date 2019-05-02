@@ -42,4 +42,4 @@ Drawbacks of functional pattern
 	Some knocks:
 		No common list of fields (local variables and parameters)
 		It is hard to name the instance (because of a name of constructor)
-
+*/
