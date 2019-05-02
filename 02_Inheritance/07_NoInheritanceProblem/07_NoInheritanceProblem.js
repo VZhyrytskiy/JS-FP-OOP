@@ -4,13 +4,12 @@
  */
 
 let parent = function () {
-
-	let me = {};
+	const me = {};
 
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			init: function () {
 				me.refresh();
 			},
@@ -21,17 +20,16 @@ let parent = function () {
 	}
 
 	// Return public API
-	return Object.freeze(me);
+	return me;
 };
 
 let child = function () {
-
-	let me = parent();
+	const me = parent();
 
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			refresh: function () {
 				console.log("Child object");
 			}

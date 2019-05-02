@@ -19,7 +19,6 @@ let square = function (x, y, width) {
 		// You shouldn't use me = {...}
 
 		// Extend me
-		// !!! Problem, when me is frozen
 		me.getWidth = function () {
 			return width_;
 		};
@@ -30,5 +29,5 @@ let square = function (x, y, width) {
 		};
 	}
 
-	return me;
+	return Object.freeze(me);
 }

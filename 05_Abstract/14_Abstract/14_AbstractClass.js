@@ -6,7 +6,7 @@ let abstractParent = function () {
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			setValue: function (value) {
 				throw Error("Unimplemented abstract method - setValue");
 			},
@@ -16,7 +16,7 @@ let abstractParent = function () {
 		});
 	};
 
-	return Object.freeze(me);
+	return me;
 };
 
 
@@ -27,7 +27,7 @@ let parent = function () {
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			setValue: function (value) {
 				me.value_ = value;
 			}

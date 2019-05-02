@@ -14,7 +14,7 @@ let square = function (x, y, width) {
     // We extend me or ovveride some methods
     function publicAPI() {
         // Call extend or Object.assign or use ...
-        me = Object.assign({}, me, {
+        Object.assign(me, {
             getWidth: function () {
                 return width;
             },

@@ -14,10 +14,10 @@ let parent = function () {
     }
 
     // Return public API
-    return Object.freeze({
+    return {
         init,
         refresh
-    });
+    };
 };
 
 let child = function () {
@@ -27,7 +27,7 @@ let child = function () {
     publicAPI();
 
     function publicAPI() {
-        me = Object.assign({}, me, {
+        Object.assign(me, {
             refresh: function () {
                 console.log("Child object");
             }

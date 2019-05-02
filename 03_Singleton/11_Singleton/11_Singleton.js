@@ -12,7 +12,7 @@ let parent = (function () {
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			setValue: function (p_value) {
 				value = p_value;
 			},

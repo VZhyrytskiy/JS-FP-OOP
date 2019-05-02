@@ -10,7 +10,7 @@ let parent = function (value) {
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			getValue: function () {
 				return value;
 			}
@@ -18,7 +18,7 @@ let parent = function (value) {
 	}
 
 	// Return public API
-	return Object.freeze(me);
+	return me;
 };
 
 let child = function (value) {
@@ -31,7 +31,7 @@ let child = function (value) {
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			// Override parent method
 			getValue: function () {
 				return `Child object -> GetValue(): ${superGetValue()}`;
@@ -39,7 +39,7 @@ let child = function (value) {
 		});
 	}
 
-	return Object.freeze(me);
+	return me;
 };
 
 let grandChild = function (value) {
@@ -52,7 +52,7 @@ let grandChild = function (value) {
 	publicAPI();
 
 	function publicAPI() {
-		me = Object.assign({}, me, {
+		Object.assign(me, {
 			getValue: function () {
 				return `GrandChild object -> GetValue(): ${superClass.getValue()}`;
 			}

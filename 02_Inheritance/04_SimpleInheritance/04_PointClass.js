@@ -59,5 +59,5 @@ let point = function (x, y, fieldParam) {
 	}
 
 	// Return public API
-	return Object.freeze(me);
+	return me;
 };
